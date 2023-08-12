@@ -26,7 +26,7 @@ app.get('/json', (req, res) => {
     });
 });
 
-
+console.log(process.env.MESSAGE_STYLE);
 
 
 
