@@ -4,6 +4,17 @@ require('dotenv').config();
 
 console.log("Hello World");
 
+const logger = function (req, res, next) {
+    const method = req.method;
+    const path = req.path;
+    const ip = req.ip;
+
+    console.log("%s %s - %s", method, path, ip);
+    next();
+}
+
+app.use(logger);
+
 app.use('/public', express.static(__dirname + "/public"));
 
 app.get('/', (req, res) => {
@@ -26,7 +37,6 @@ app.get('/json', (req, res) => {
     });
 });
 
-console.log(process.env.MESSAGE_STYLE);
 
 
 
