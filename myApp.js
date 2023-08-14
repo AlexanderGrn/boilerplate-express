@@ -9,7 +9,7 @@ const logger = function (req, res, next) {
     const path = req.path;
     const ip = req.ip;
 
-    console.log("%s %s - %s", method, path, ip);
+    console.log(method + " " + path + " - " + ip);
     next();
 }
 
