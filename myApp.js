@@ -39,12 +39,15 @@ app.get('/json', (req, res) => {
 
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
+
     next()
-}, (req, res) => {
-    res.json({
-        time: req.time
-    });
-});
+},
+    (req, res) => {
+        res.json({
+            time: req.time
+        });
+    }
+);
 
 app.get('/:word/echo', (req, res) => {
     res.json({ echo: req.params.word });
