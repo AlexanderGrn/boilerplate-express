@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 console.log("Hello World");
 
@@ -12,6 +13,8 @@ const logger = function (req, res, next) {
     console.log(method + " " + path + " - " + ip);
     next();
 }
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(logger);
 
